@@ -19,11 +19,21 @@ const TodoApp = () => {
         setTasks(taskElements => [newTask, ...taskElements]);
     };
 
+    const handleDeleteTask = (id) => {
+        // Mise à jours de la liste des taches
+        // -> Via le filter, on obtient la copie de la liste sans l'element ciblé
+        setTasks(taskElements => taskElements.filter(t => t.id !== id));
+
+        // ↓ Ecriture de la meme ligne, sans les fonctions lamdba « A l'ancienne ;) »
+        // setTasks(function (taskElements) { return taskElements.filter(function (t) { return t.id !== id; }); });  
+    };
+
     return (
         <main>
             <TaskForm onNewTask={handleNewTask} />
 
-            <TaskList datas={tasks} />
+            <TaskList datas={tasks}
+                onDeleteTask={handleDeleteTask} />
         </main>
     );
 };

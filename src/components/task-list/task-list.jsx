@@ -7,7 +7,8 @@ const TaskList = (props) => {
     // Utilisation de la fonction "map" pour transformer l'array JS en array de JSX
     const tasksJSX = props.datas.map(
         // Utilisation du composant "item" précédement créé.
-        task => <TaskListItem {...task} key={task.id} />
+        task => <TaskListItem {...task} key={task.id}
+                    onDelete={props.onDeleteTask} />
     );
 
     return (
