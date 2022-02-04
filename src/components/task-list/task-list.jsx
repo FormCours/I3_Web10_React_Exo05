@@ -8,7 +8,8 @@ const TaskList = (props) => {
     const tasksJSX = props.datas.map(
         // Utilisation du composant "item" précédement créé.
         task => <TaskListItem {...task} key={task.id}
-                    onDelete={props.onDeleteTask} />
+                    onDelete={props.onDeleteTask}
+                    onFinish={props.onFinishTask} />
     );
 
     return (

@@ -27,7 +27,7 @@ const TaskListItem = (props) => {
                 )}
             </div>
             <div className={style.taskAction}>
-                <button disabled={isFinish}>Terminer</button>
+                <button onClick={() => onFinish(id)} disabled={isFinish}>Terminer</button>
                 <button onClick={() => onDelete(id)}>Supprimer</button>
             </div>
         </div>
