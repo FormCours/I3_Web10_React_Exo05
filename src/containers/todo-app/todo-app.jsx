@@ -1,6 +1,7 @@
 import { nanoid } from 'nanoid';
 import { useState } from 'react';
 import TaskForm from '../../components/task-form/task-form';
+import TaskList from '../../components/task-list/task-list';
 
 const TodoApp = () => {
 
@@ -22,7 +23,7 @@ const TodoApp = () => {
         <main>
             <TaskForm onNewTask={handleNewTask} />
 
-            Liste taches !!!
+            <TaskList datas={tasks} />
         </main>
     );
 };
