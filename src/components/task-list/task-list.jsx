@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import TaskListItem from './task-list-item';
+import style from './task-list.module.css';
 
 const TaskList = (props) => {
 
@@ -10,9 +11,9 @@ const TaskList = (props) => {
     );
 
     return (
-        <div>
+        <div className={style.listApp}>
             <h2>La liste des taches</h2>
-            <div>
+            <div className={style.listContent}>
                 {tasksJSX}
             </div>
         </div>
@@ -20,14 +21,18 @@ const TaskList = (props) => {
 }
 
 TaskList.defaultProps = {
-    datas: []
+    datas: [],
+    onDeleteTask: () => {},
+    onFinishTask: () => {}
 };
 
 TaskList.propTypes = {
     datas: PropTypes.arrayOf(PropTypes.shape({
         id: PropTypes.string.isRequired
         // Permet de définir que l'array doit contenir au minimum l'id
-    }))
+    })),
+    onDeleteTask: PropTypes.func,
+    onFinishTask: PropTypes.func
 }
 
 export default TaskList;
