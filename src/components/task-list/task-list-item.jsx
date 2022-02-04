@@ -1,15 +1,33 @@
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
+import style from './task-list-item.module.css';
 
 const TaskListItem = (props) => {
+    // Récuperation des données a afficher
+    const {id, name, desc, priority, isFinish} = props;
+    
+    // Récuperation des events à envoyer
+    const {onFinish, onDelete} = props;
 
+    // Définition du style pour une tache via "classnames"
+    const styleTask = classNames({
+        [style.task] : true,
+        [style.isDone] : isFinish
+    })
+
+    // Définition du rendu
     return (
-        <div>
-            <div>
-                <h3>Nom...</h3>
-                <p>Description...</p>
+        <div className={styleTask}>
+            <div className={style.taskInfo}>
+                <h3>{name} {(priority === 'high') && <span className={style.urgent}>(Urgent)</span>}</h3>
+                {(desc.trim() !== '') ? (
+                    <p>{desc}</p>
+                ): (
+                    <p>Aucunne description...</p>
+                )}
             </div>
-            <div>
-                <button>Terminer</button>
+            <div className={style.taskAction}>
+                <button disabled={isFinish}>Terminer</button>
                 <button>Supprimer</button>
             </div>
         </div>

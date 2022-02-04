@@ -1,7 +1,7 @@
 .formTask {
     display: grid;
-    grid-gap: 3px;
-    grid-template-columns: 300px 20px 50px;
+    gap: 3px;
+    grid-template-columns: 350px 20px 50px;
     grid-template-rows: repeat(3, 20px);
     margin-bottom: 20px;
 }
